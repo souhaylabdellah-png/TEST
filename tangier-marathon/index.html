@@ -1,0 +1,928 @@
+<title>Tangier Full Marathon — 42.195 km Between Two Seas</title>
+
+<style>
+  :root {
+    --paper:    #E7E9E4;
+    --paper-2:  #F2F4F0;
+    --panel:    #DCE0DA;
+    --ink:      #0D1F26;
+    --ink-soft: #46595F;
+    --sea:      #2E6F7E;
+    --accent:   #C8382A;
+    --star:     #13664A;
+    --sand:     #A8813F;
+    --rule:     rgba(13, 31, 38, 0.18);
+    --shadow:   rgba(13, 31, 38, 0.10);
+
+    --display: Impact, Haettenschweiler, "Arial Narrow Bold", "Franklin Gothic Heavy", sans-serif;
+    --body: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
+    --measure: 64ch;
+    --pad: clamp(1.15rem, 5vw, 4rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:    #0A171C;
+      --paper-2:  #10222A;
+      --panel:    #162C34;
+      --ink:      #E8ECE6;
+      --ink-soft: #9AAFB4;
+      --sea:      #6FB4C2;
+      --accent:   #FF6A55;
+      --star:     #4FBF8F;
+      --sand:     #D2AC6B;
+      --rule:     rgba(232, 236, 230, 0.20);
+      --shadow:   rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:    #0A171C;
+    --paper-2:  #10222A;
+    --panel:    #162C34;
+    --ink:      #E8ECE6;
+    --ink-soft: #9AAFB4;
+    --sea:      #6FB4C2;
+    --accent:   #FF6A55;
+    --star:     #4FBF8F;
+    --sand:     #D2AC6B;
+    --rule:     rgba(232, 236, 230, 0.20);
+    --shadow:   rgba(0, 0, 0, 0.45);
+  }
+
+  :root[data-theme="light"] {
+    --paper:    #E7E9E4;
+    --paper-2:  #F2F4F0;
+    --panel:    #DCE0DA;
+    --ink:      #0D1F26;
+    --ink-soft: #46595F;
+    --sea:      #2E6F7E;
+    --accent:   #C8382A;
+    --star:     #13664A;
+    --sand:     #A8813F;
+    --rule:     rgba(13, 31, 38, 0.18);
+    --shadow:   rgba(13, 31, 38, 0.10);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: var(--pad);
+  }
+
+  .col {
+    max-width: var(--measure);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 0.92;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p { margin: 0; }
+
+  a {
+    color: inherit;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 2px;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .band {
+    padding-block: clamp(3rem, 8vw, 6.5rem);
+    border-top: 1px solid var(--rule);
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+    border-bottom: 3px double var(--rule);
+  }
+
+  .masthead .brand {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .masthead .brand b {
+    color: var(--accent);
+    letter-spacing: 0.18em;
+  }
+
+  .masthead .dateline {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    padding-block: clamp(2.25rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    align-self: flex-start;
+    background: var(--accent);
+    color: #FFF6F2;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.42rem 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 12.5vw, 10.5rem);
+    letter-spacing: -0.012em;
+    line-height: 0.85;
+  }
+
+  .hero h1 .sea-word {
+    color: var(--sea);
+  }
+
+  .hero h1 .hit {
+    color: var(--accent);
+  }
+
+  .hero .deck {
+    font-size: clamp(1.1rem, 0.98rem + 0.6vw, 1.45rem);
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  .hero .deck strong {
+    color: var(--ink);
+    font-weight: 400;
+    box-shadow: inset 0 -0.42em 0 color-mix(in srgb, var(--sand) 34%, transparent);
+  }
+
+  /* ---------- countdown ---------- */
+
+  .clock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: clamp(0.9rem, 3vw, 2.5rem);
+    padding-block: 1.4rem;
+    border-block: 1px solid var(--rule);
+  }
+
+  .clock .unit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .clock .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(2.1rem, 7vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  .clock .lab {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .clock .sep {
+    font-family: var(--mono);
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    color: var(--sand);
+    line-height: 1.4;
+  }
+
+  .clock .to {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    max-width: 15ch;
+    line-height: 1.7;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    padding: 0.72rem 1.6rem 0.62rem;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+    transition: transform 120ms ease, background 120ms ease, color 120ms ease;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #FFF6F2;
+    transform: translateY(-2px);
+  }
+
+  .cta-note {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  /* ---------- reasons ---------- */
+
+  .reasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 2.5rem;
+  }
+
+  .reason {
+    background: var(--paper);
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .reason h3 {
+    font-size: 1.5rem;
+    color: var(--sea);
+  }
+
+  .reason p {
+    font-size: 0.96rem;
+    color: var(--ink-soft);
+  }
+
+  .reason .tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sand);
+  }
+
+  /* ---------- course ---------- */
+
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leg {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0 clamp(1rem, 3vw, 2.25rem);
+    padding-block: 1.15rem;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .leg:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .leg .km {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+
+  .leg h3 {
+    font-size: 1.4rem;
+  }
+
+  .leg p {
+    grid-column: 2;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin-top: 0.3rem;
+  }
+
+  .leg.summit {
+    background: color-mix(in srgb, var(--sand) 14%, transparent);
+  }
+
+  .leg.summit .km {
+    color: var(--sand);
+  }
+
+  /* ---------- facts ---------- */
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1.75rem 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+    border-top: 3px solid var(--ink);
+    padding-top: 0.7rem;
+  }
+
+  .fact dt {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .fact dd {
+    margin: 0;
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 1.65rem;
+    line-height: 1;
+  }
+
+  .fact dd small {
+    display: block;
+    font-family: var(--body);
+    text-transform: none;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-top: 0.35rem;
+  }
+
+  /* ---------- sub-2 ---------- */
+
+  .sub2 {
+    background: var(--paper-2);
+  }
+
+  .verdict {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-left: 5px solid var(--accent);
+    padding: 0.2rem 0 0.2rem 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .verdict .big {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(2.4rem, 9vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .verdict .who {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    margin-top: 2.25rem;
+    border: 1px solid var(--rule);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 30rem;
+    background: var(--paper);
+    font-variant-numeric: tabular-nums;
+  }
+
+  caption {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 0.85rem 1rem;
+    background: var(--panel);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  th, td {
+    text-align: right;
+    padding: 0.6rem 1rem;
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  th:first-child, td:first-child {
+    text-align: left;
+  }
+
+  thead th {
+    font-size: 0.66rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+    color: var(--accent);
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 2.25rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem 2rem;
+  }
+
+  .checklist li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 0.85rem;
+  }
+
+  .checklist b {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sea);
+    font-weight: 400;
+  }
+
+  .checklist span {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .reality {
+    margin-top: 2.75rem;
+    padding: 1.6rem 1.5rem;
+    background: color-mix(in srgb, var(--star) 12%, transparent);
+    border-left: 5px solid var(--star);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .reality h3 {
+    font-size: 1.7rem;
+    color: var(--star);
+  }
+
+  .reality p {
+    max-width: 60ch;
+  }
+
+  /* ---------- footer ---------- */
+
+  .site-foot {
+    border-top: 3px double var(--rule);
+    padding-block: 2.75rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .site-foot .sig {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .site-foot .sig span {
+    color: var(--accent);
+  }
+
+  .fine {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    max-width: 72ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+    .btn:hover { transform: none; }
+  }
+</style>
+
+<header class="wrap masthead">
+  <p class="brand"><b>CloudsCFO</b> &nbsp;presents</p>
+  <p class="dateline">Tangier &middot; Morocco &middot; 35&deg;47&prime;N 5&deg;48&prime;W</p>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <p class="kicker">You will not believe kilometre 32</p>
+
+    <h1>The marathon that <span class="sea-word">ruins</span> every other marathon <span class="hit">for you</span></h1>
+
+    <p class="deck">
+      42.195 kilometres across the only city on earth where the Atlantic and the
+      Mediterranean touch. You start in a medina. You finish looking at
+      <strong>two seas and another continent</strong>.
+    </p>
+
+    <div class="clock" id="clock" aria-live="off">
+      <div class="unit">
+        <span class="num" id="d">—</span>
+        <span class="lab">Days</span>
+      </div>
+      <span class="sep" aria-hidden="true">:</span>
+      <div class="unit">
+        <span class="num" id="h">—</span>
+        <span class="lab">Hours</span>
+      </div>
+      <span class="sep" aria-hidden="true">:</span>
+      <div class="unit">
+        <span class="num" id="m">—</span>
+        <span class="lab">Minutes</span>
+      </div>
+      <span class="sep" aria-hidden="true">:</span>
+      <div class="unit">
+        <span class="num" id="s">—</span>
+        <span class="lab">Seconds</span>
+      </div>
+      <p class="to">until the gun<br />Sun 25 Oct 2026, 08:00</p>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="#course">See the course</a>
+      <a class="btn" href="#sub2">Can you break 2 hours?</a>
+      <p class="cta-note">Concept event &middot; scroll for the honest maths</p>
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <div class="col stack">
+      <p class="eyebrow">Five reasons runners come back</p>
+      <h2 style="font-size: clamp(2rem, 6vw, 3.5rem);">Flat, cold, salty, and stupidly beautiful</h2>
+      <p>
+        Tangier sits at sea level on a strait 14 kilometres wide. Late October
+        gives you 18&nbsp;°C, an Atlantic headwind on one shoulder and a
+        Mediterranean tailwind on the other, and a course that spends most of its
+        distance within sight of water.
+      </p>
+    </div>
+
+    <div class="reasons">
+      <article class="reason">
+        <p class="tag">Two seas</p>
+        <h3>Cap Spartel</h3>
+        <p>At kilometre 32 the headland splits the water. Atlantic to your left, Mediterranean to your right, Spain on the skyline.</p>
+      </article>
+      <article class="reason">
+        <p class="tag">Sea level</p>
+        <h3>Fast by design</h3>
+        <p>Total elevation gain is about 210 m, and 150 m of it is one climb you finish before halfway.</p>
+      </article>
+      <article class="reason">
+        <p class="tag">Kilometre 18</p>
+        <h3>The Kasbah</h3>
+        <p>Ninety seconds of cobbles through the old fortress gate, with the whole medina shouting at you from the walls.</p>
+      </article>
+      <article class="reason">
+        <p class="tag">October</p>
+        <h3>18 degrees</h3>
+        <p>Average race-morning temperature at 08:00, with humidity off the strait and cloud cover most years.</p>
+      </article>
+      <article class="reason">
+        <p class="tag">Finish line</p>
+        <h3>Mint tea</h3>
+        <p>No foil blanket and a protein bar. You get a glass of tea at Café Hafa, on a cliff, facing Europe.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap band" id="course">
+    <div class="col stack">
+      <p class="eyebrow">The course &middot; 42.195 km &middot; single loop</p>
+      <h2 style="font-size: clamp(2rem, 6vw, 3.5rem);">Ten legs, one hill, two oceans</h2>
+      <p>
+        The route leaves the Grand Socco heading east along the bay, climbs into
+        the Kasbah, then runs the Atlantic coast road out to the lighthouse and
+        back. Numbered by kilometre marker, because that is the order your legs
+        will meet them in.
+      </p>
+    </div>
+
+    <ol class="course-list">
+      <li class="leg">
+        <span class="km">0.0</span>
+        <h3>Grand Socco</h3>
+        <p>Gun at 08:00 under the medina walls. The first kilometre drops 20 m toward the port — everybody goes out too fast here. Everybody.</p>
+      </li>
+      <li class="leg">
+        <span class="km">3.4</span>
+        <h3>Corniche</h3>
+        <p>Straight, wide, dead flat along the Bay of Tangier. Ferries stacking up offshore. This is where you settle into goal pace.</p>
+      </li>
+      <li class="leg">
+        <span class="km">8.1</span>
+        <h3>Cap Malabata</h3>
+        <p>The eastern turnaround at the lighthouse. First look back at the city, first crosswind off the Mediterranean.</p>
+      </li>
+      <li class="leg">
+        <span class="km">14.0</span>
+        <h3>The port</h3>
+        <p>Back past the ferry terminal. Ships sound their horns as the lead pack comes through — it is loud, and it is worth about ten seconds of free pace.</p>
+      </li>
+      <li class="leg summit">
+        <span class="km">17.9</span>
+        <h3>Kasbah climb</h3>
+        <p>The one real hill: 150 m of gain over 2.1 km, the last 400 m on cobbles through Bab el Bahr. Walk it if you have to. Nobody is judging.</p>
+      </li>
+      <li class="leg">
+        <span class="km">21.1</span>
+        <h3>Café Hafa &middot; halfway</h3>
+        <p>Cliff terrace above the strait. On a clear morning you can see Tarifa. Split mats here — this is the number you will quote for years.</p>
+      </li>
+      <li class="leg">
+        <span class="km">26.5</span>
+        <h3>Atlantic road</h3>
+        <p>Long, exposed, gently rolling, headwind more often than not. The lonely part of the race. Run it with someone.</p>
+      </li>
+      <li class="leg">
+        <span class="km">32.0</span>
+        <h3>Cap Spartel</h3>
+        <p>The lighthouse. Two seas visibly meeting below you, Europe across the water. If you have anything left, spend it in the next 5 km.</p>
+      </li>
+      <li class="leg">
+        <span class="km">35.4</span>
+        <h3>Caves of Hercules</h3>
+        <p>Turn for home along the cliffs. Net downhill from here to the finish, which is either a gift or a cruelty depending on your quads.</p>
+      </li>
+      <li class="leg">
+        <span class="km">42.195</span>
+        <h3>Finish &middot; Grand Socco</h3>
+        <p>Back up through the gate you started at, into the square, tea in hand within ninety seconds.</p>
+      </li>
+    </ol>
+
+    <dl class="facts">
+      <div class="fact">
+        <dt>Race day</dt>
+        <dd>25 Oct 2026<small>Sunday, gun at 08:00 (UTC+1)</small></dd>
+      </div>
+      <div class="fact">
+        <dt>Distance</dt>
+        <dd>42.195 km<small>Full marathon. Half and 10 km start at 08:30.</small></dd>
+      </div>
+      <div class="fact">
+        <dt>Elevation gain</dt>
+        <dd>210 m<small>150 m of it in the Kasbah climb, km 18–20</small></dd>
+      </div>
+      <div class="fact">
+        <dt>Cut-off</dt>
+        <dd>6:30<small>Generous. Course stays closed until the last runner is in.</small></dd>
+      </div>
+      <div class="fact">
+        <dt>Aid stations</dt>
+        <dd>Every 5 km<small>Water, electrolyte, dates, oranges, sponges from km 15</small></dd>
+      </div>
+      <div class="fact">
+        <dt>Expected temp</dt>
+        <dd>18 °C<small>08:00 average for late October. Sea breeze all morning.</small></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="band sub2" id="sub2">
+    <div class="wrap">
+      <div class="col stack">
+        <p class="eyebrow">The question everyone asks</p>
+        <h2 style="font-size: clamp(2.1rem, 7vw, 4.2rem);">How do you run a marathon in under two hours?</h2>
+        <p>
+          Until April 2026 the honest answer was &ldquo;nobody has, in a real
+          race.&rdquo; That answer expired. Here is what it actually took, what
+          it would take you, and the version of &ldquo;sub-2&rdquo; that is
+          genuinely within reach.
+        </p>
+      </div>
+
+      <div class="col verdict">
+        <span class="big">1:59:30</span>
+        <span class="who">Sabastian Sawe &middot; London &middot; 26 April 2026 &middot; world record, first legal sub-2</span>
+      </div>
+
+      <div class="col stack" style="margin-top: 2.25rem;">
+        <p>
+          That is <strong>2:50 per kilometre</strong>, or 4:33 per mile, or
+          21.2&nbsp;km/h — held without a break for one hundred and nineteen
+          minutes. Not one mile. All twenty-six of them, plus the bit at the end.
+          Yomif Kejelcha ran 1:59:41 behind him on debut; Kelvin Kiptum&rsquo;s
+          2:00:35 had stood as the record before that. Eliud Kipchoge&rsquo;s
+          1:59:40 in Vienna in 2019 came first, but rotating pacers and a pace
+          car made it an exhibition, not a record.
+        </p>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <caption>What sub-2 looks like on the clock — 2:49.9 per km, even splits</caption>
+          <thead>
+            <tr>
+              <th scope="col">Split</th>
+              <th scope="col">Elapsed</th>
+              <th scope="col">Pace / km</th>
+              <th scope="col">Pace / mile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>5 km</td><td>14:09</td><td>2:50</td><td>4:33</td></tr>
+            <tr><td>10 km</td><td>28:19</td><td>2:50</td><td>4:33</td></tr>
+            <tr><td>Half</td><td>59:45</td><td>2:50</td><td>4:33</td></tr>
+            <tr><td>30 km</td><td>1:24:57</td><td>2:50</td><td>4:33</td></tr>
+            <tr><td>40 km</td><td>1:53:16</td><td>2:50</td><td>4:33</td></tr>
+            <tr><td>42.195 km</td><td>1:59:30</td><td>2:50</td><td>4:33</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="checklist">
+        <li>
+          <b>Engine</b>
+          <span>A VO&#8322;max around 85 ml/kg/min — roughly double a healthy untrained adult&rsquo;s, and mostly decided by genetics before you start training.</span>
+        </li>
+        <li>
+          <b>Economy</b>
+          <span>Exceptional running economy: less oxygen burned per kilometre than almost anyone alive, at about 55 kg carried on a light frame.</span>
+        </li>
+        <li>
+          <b>Volume</b>
+          <span>180–220 km a week, most of it easy, sustained for a decade. The record is built in the boring kilometres, not the fast ones.</span>
+        </li>
+        <li>
+          <b>Fuelling</b>
+          <span>90–120 g of carbohydrate per hour, drunk on the move, with a gut trained over years to absorb it at race pace.</span>
+        </li>
+        <li>
+          <b>Kit and course</b>
+          <span>Carbon-plated super shoes (~4% economy), a flat sea-level loop, 8–12 °C, and a pack to draft — each worth seconds you cannot spare.</span>
+        </li>
+        <li>
+          <b>The truth</b>
+          <span>Fewer than five people on the planet can do this today. It is not a training plan you can buy. That is what makes it worth watching.</span>
+        </li>
+      </ul>
+
+      <div class="reality col">
+        <h3>There is a sub-2 that is actually yours</h3>
+        <p>
+          Run the half in under two hours. That is 5:41 per kilometre — a pace a
+          committed runner can build to in one training block, and about half the
+          field&rsquo;s goal on race morning. Tangier&rsquo;s half starts at 08:30
+          on the same course, and finishes in the same square, with the same tea.
+        </p>
+        <p>
+          Or take the full at 5:41/km and finish in 3:59:5x, which is the goal
+          that ninety percent of first-time marathoners actually chase. Both of
+          those are real. Neither of them needs a VO&#8322;max of 85.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <div class="col stack">
+      <p class="eyebrow">Entry</p>
+      <h2 style="font-size: clamp(2rem, 6vw, 3.5rem);">Places go in October waves</h2>
+      <p>
+        Full marathon, half marathon and 10 km. Field capped at 6,000 across all
+        three distances because the medina streets are the medina streets.
+      </p>
+      <div class="cta-row" style="margin-top: 0.75rem;">
+        <a class="btn" href="#course">Register interest</a>
+        <p class="cta-note">Bib includes chip timing, tea, and one very good photo at km 32</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap site-foot">
+  <p class="sig">Bslama, and see you at the <span>Socco</span>.</p>
+  <p class="fine">
+    Presented by CloudsCFO. This is a concept race page: the course, dates,
+    fees and logistics are illustrative and are not an official race listing —
+    check with the organiser before booking anything. The performance figures
+    are real: Sabastian Sawe&rsquo;s 1:59:30 world record was set at the London
+    Marathon on 26 April 2026, Kelvin Kiptum&rsquo;s 2:00:35 preceded it, and
+    Eliud Kipchoge&rsquo;s 1:59:40 in Vienna in 2019 was an exhibition run
+    ineligible for record ratification.
+  </p>
+</footer>
+
+<script>
+  (function () {
+    var target = new Date("2026-10-25T08:00:00+01:00").getTime();
+    var d = document.getElementById("d"),
+        h = document.getElementById("h"),
+        m = document.getElementById("m"),
+        s = document.getElementById("s");
+
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+    function tick() {
+      var left = target - Date.now();
+      if (left < 0) { left = 0; }
+      var secs = Math.floor(left / 1000);
+      d.textContent = Math.floor(secs / 86400);
+      h.textContent = pad(Math.floor(secs / 3600) % 24);
+      m.textContent = pad(Math.floor(secs / 60) % 60);
+      s.textContent = pad(secs % 60);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
