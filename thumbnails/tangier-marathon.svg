@@ -1,0 +1,421 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1280 720" width="1280" height="720">
+
+  <!-- ============================================================
+       YouTube thumbnail (1280x720): marathon runner, Tangier sunset
+       Layers: sky > sun > strait > medina hill > corniche > runner > text
+       ============================================================ -->
+
+  <defs>
+    <!-- ---------- sky / sun / sea ---------- -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#1d1546"/>
+      <stop offset="0.28" stop-color="#5c2168"/>
+      <stop offset="0.52" stop-color="#b23a63"/>
+      <stop offset="0.74" stop-color="#f0743a"/>
+      <stop offset="0.92" stop-color="#ffb54e"/>
+      <stop offset="1.00" stop-color="#ffe08a"/>
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#fff3b8" stop-opacity="0.95"/>
+      <stop offset="0.32" stop-color="#ffb350" stop-opacity="0.58"/>
+      <stop offset="0.68" stop-color="#ff7a3c" stop-opacity="0.22"/>
+      <stop offset="1.00" stop-color="#ff6a3c" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="sunDisc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffbe3"/>
+      <stop offset="1" stop-color="#ffc85c"/>
+    </linearGradient>
+
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#ffb86a"/>
+      <stop offset="0.22" stop-color="#d4696e"/>
+      <stop offset="0.60" stop-color="#5a3f77"/>
+      <stop offset="1.00" stop-color="#221d44"/>
+    </linearGradient>
+
+    <linearGradient id="promenade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f2140"/>
+      <stop offset="1" stop-color="#120d1d"/>
+    </linearGradient>
+
+    <!-- left scrim: keeps headline legible without flattening the city -->
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.00" stop-color="#0b0716" stop-opacity="0.80"/>
+      <stop offset="0.55" stop-color="#0b0716" stop-opacity="0.42"/>
+      <stop offset="1.00" stop-color="#0b0716" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="0.5" cy="0.46" r="0.78">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1.00" stop-color="#000" stop-opacity="0.62"/>
+    </radialGradient>
+
+    <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd9a0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffe8bd" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- ---------- filters ---------- -->
+    <filter id="rimlight" x="-40%" y="-40%" width="180%" height="180%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="fat"/>
+      <feGaussianBlur in="fat" stdDeviation="10" result="soft"/>
+      <feFlood flood-color="#ffb247"/>
+      <feComposite in2="soft" operator="in"/>
+    </filter>
+
+    <filter id="hotrim" x="-30%" y="-30%" width="160%" height="160%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="fat"/>
+      <feGaussianBlur in="fat" stdDeviation="2.5" result="soft"/>
+      <feFlood flood-color="#fff0c0"/>
+      <feComposite in2="soft" operator="in"/>
+    </filter>
+
+    <filter id="softshadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+
+    <filter id="hazeblur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <!-- ------------------------------------------------------------------
+         RUNNER — drawn facing +x (right), mirrored when placed.
+         Toe-off / flight phase: far leg drives knee high and forward,
+         near leg is extended back off the push, opposite arms swing.
+         ------------------------------------------------------------------ -->
+    <g id="runner">
+      <!-- ===== FAR side (behind torso, darker) ===== -->
+      <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#0a0d1c">
+        <!-- lead leg: knee driven up, shin reaching forward to the next footstrike -->
+        <path d="M128,254 L196,240" stroke-width="43"/>
+        <path d="M196,240 L216,326" stroke-width="30"/>
+        <!-- far arm driving back to the hip -->
+        <path d="M140,126 L92,170" stroke-width="27"/>
+        <path d="M92,170 L60,204" stroke-width="22"/>
+      </g>
+      <!-- lead shoe -->
+      <g stroke-linecap="round" fill="none">
+        <path d="M216,326 L256,336" stroke="#0a0d1c" stroke-width="21"/>
+        <path d="M218,320 L256,330" stroke="#b9d93c" stroke-width="11"/>
+      </g>
+      <circle cx="56" cy="208" r="13" fill="#0a0d1c"/>
+
+      <!-- ===== TORSO (upright, ~9 degree forward lean) ===== -->
+      <path d="M128,106 C158,96 184,108 192,130 L170,262 C150,276 116,274 104,254 Z" fill="#141a30"/>
+      <!-- singlet -->
+      <path d="M130,108 C158,98 183,110 190,131 L176,214 C150,226 118,222 106,206 Z" fill="#c0272d"/>
+      <!-- shaded side of the singlet -->
+      <path d="M172,120 C182,124 188,127 190,131 L176,214 C170,217 163,219 156,220 Z"
+            fill="#8d1b21" opacity="0.85"/>
+      <!-- race bib -->
+      <g transform="translate(150,176) rotate(-4)">
+        <rect x="-31" y="-25" width="62" height="50" rx="5" fill="#f4f1e6"/>
+        <g transform="scale(-1,1)">
+          <text x="0" y="9" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="30"
+                font-weight="700" fill="#1a1a1a" text-anchor="middle" letter-spacing="-1">42</text>
+        </g>
+        <rect x="-31" y="-25" width="62" height="9" fill="#c0272d"/>
+      </g>
+      <!-- shorts -->
+      <path d="M106,236 L176,244 L172,276 C146,290 112,286 100,266 Z" fill="#12172b"/>
+
+      <!-- ===== HEAD ===== -->
+      <path d="M156,112 L166,86" stroke="#141a30" stroke-width="28" stroke-linecap="round"/>
+      <circle cx="168" cy="58" r="33" fill="#161c33"/>
+      <!-- running cap + visor -->
+      <path d="M135,54 C137,20 170,7 193,26 C203,35 205,47 203,54 Z" fill="#0d1224"/>
+      <path d="M201,48 L230,55 L200,61 Z" fill="#0d1224"/>
+
+      <!-- ===== NEAR side (in front, lighter) ===== -->
+      <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#1b2340">
+        <!-- trail leg extended back off the toe-off -->
+        <path d="M140,260 L72,300" stroke-width="45"/>
+        <path d="M72,300 L28,372" stroke-width="31"/>
+        <!-- near arm swinging up in front of the ribs -->
+        <path d="M176,130 L216,186" stroke-width="29"/>
+        <path d="M216,186 L222,142" stroke-width="23"/>
+      </g>
+      <!-- trail shoe -->
+      <g stroke-linecap="round" fill="none">
+        <path d="M28,372 L-14,388" stroke="#1b2340" stroke-width="22"/>
+        <path d="M30,366 L-10,381" stroke="#b9d93c" stroke-width="12"/>
+      </g>
+      <circle cx="224" cy="136" r="14" fill="#1b2340"/>
+    </g>
+
+    <!-- ---------- palm tree ---------- -->
+    <g id="palm">
+      <path d="M0,0 C-6,-46 -4,-92 6,-132" stroke="#150f22" stroke-width="11" fill="none" stroke-linecap="round"/>
+      <g fill="#150f22">
+        <path d="M6,-132 C-24,-152 -56,-152 -78,-136 C-52,-142 -26,-138 4,-124 Z"/>
+        <path d="M6,-132 C34,-156 68,-158 88,-142 C62,-146 34,-140 8,-124 Z"/>
+        <path d="M6,-132 C-12,-166 -34,-186 -60,-192 C-38,-176 -20,-154 -2,-126 Z"/>
+        <path d="M6,-132 C22,-168 46,-188 72,-196 C50,-178 30,-156 12,-126 Z"/>
+        <path d="M6,-132 C0,-166 2,-190 10,-206 C16,-186 16,-160 12,-128 Z"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ================= SKY ================= -->
+  <rect width="1280" height="470" fill="url(#sky)"/>
+
+  <!-- sun: sits low over the Strait and backlights the runner -->
+  <circle cx="770" cy="398" r="336" fill="url(#sunGlow)"/>
+  <circle cx="770" cy="398" r="104" fill="url(#sunDisc)"/>
+  <circle cx="770" cy="398" r="130" fill="#ffdf8e" opacity="0.26" filter="url(#hazeblur)"/>
+
+  <!-- cloud streaks -->
+  <g opacity="0.55">
+    <rect x="60"  y="146" width="420" height="15" rx="8" fill="#ff9a5c" opacity="0.45"/>
+    <rect x="180" y="192" width="330" height="12" rx="6" fill="#ffb277" opacity="0.40"/>
+    <rect x="620" y="124" width="520" height="17" rx="9" fill="#ff8f57" opacity="0.42"/>
+    <rect x="760" y="172" width="400" height="12" rx="6" fill="#ffc089" opacity="0.38"/>
+    <rect x="470" y="248" width="650" height="13" rx="7" fill="#ffd0a0" opacity="0.34"/>
+    <rect x="120" y="296" width="380" height="10" rx="5" fill="#ffd7ae" opacity="0.26"/>
+  </g>
+
+  <!-- seagulls -->
+  <g stroke="#2a1b33" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.75">
+    <path d="M296,118 q11,-11 22,0 q11,-11 22,0"/>
+    <path d="M366,160 q8,-8 16,0 q8,-8 16,0"/>
+    <path d="M1088,232 q9,-9 18,0 q9,-9 18,0"/>
+  </g>
+
+  <!-- Spain, across the Strait of Gibraltar -->
+  <path d="M690,430 L780,410 L860,400 L950,396 L1050,404 L1150,394 L1280,408 L1280,438 L690,438 Z"
+        fill="#3b2350" opacity="0.85"/>
+
+  <!-- ================= SEA ================= -->
+  <rect x="0" y="430" width="1280" height="140" fill="url(#sea)"/>
+  <!-- glitter path under the sun -->
+  <g fill="#ffdca6">
+    <rect x="690" y="440" width="160" height="6" rx="3" opacity="0.85"/>
+    <rect x="710" y="454" width="120" height="5" rx="3" opacity="0.70"/>
+    <rect x="674" y="466" width="192" height="6" rx="3" opacity="0.62"/>
+    <rect x="706" y="480" width="128" height="5" rx="3" opacity="0.55"/>
+    <rect x="648" y="494" width="240" height="6" rx="3" opacity="0.48"/>
+    <rect x="698" y="508" width="150" height="5" rx="3" opacity="0.40"/>
+    <rect x="624" y="522" width="290" height="6" rx="3" opacity="0.32"/>
+    <rect x="690" y="538" width="170" height="5" rx="3" opacity="0.24"/>
+  </g>
+  <g stroke="#ffd0b0" stroke-width="3" stroke-linecap="round" opacity="0.28">
+    <path d="M1040,466 h60"/><path d="M1160,488 h64"/><path d="M980,512 h48"/>
+    <path d="M900,458 h40"/><path d="M1210,530 h50"/>
+  </g>
+
+  <!-- ================= TANGIER: KASBAH HILL + MEDINA ================= -->
+  <g>
+    <!-- hill mass dropping to the bay on the right -->
+    <path d="M-20,506 L70,470 L180,446 L290,414 L390,382 L470,364 L546,374 L610,398 L664,432 L700,462
+             L700,580 L-20,580 Z" fill="#4a2b4f"/>
+
+    <!-- ---- back row of whitewashed houses ---- -->
+    <g fill="#f0cd9c">
+      <rect x="120" y="404" width="58" height="56"/>
+      <rect x="186" y="392" width="46" height="68"/>
+      <rect x="242" y="398" width="62" height="62"/>
+      <rect x="316" y="368" width="52" height="86"/>
+      <rect x="378" y="352" width="66" height="96"/>
+      <rect x="454" y="346" width="52" height="96"/>
+      <rect x="516" y="360" width="60" height="86"/>
+      <rect x="586" y="392" width="52" height="66"/>
+      <rect x="44"  y="428" width="60" height="48"/>
+    </g>
+    <g fill="#98565f">
+      <rect x="162" y="404" width="16" height="56"/>
+      <rect x="218" y="392" width="14" height="68"/>
+      <rect x="288" y="398" width="16" height="62"/>
+      <rect x="354" y="368" width="14" height="86"/>
+      <rect x="428" y="352" width="16" height="96"/>
+      <rect x="492" y="346" width="14" height="96"/>
+      <rect x="562" y="360" width="14" height="86"/>
+      <rect x="624" y="392" width="14" height="66"/>
+      <rect x="90"  y="428" width="14" height="48"/>
+    </g>
+
+    <!-- ---- front row ---- -->
+    <g fill="#ffe2b8">
+      <rect x="76"  y="446" width="74" height="44"/>
+      <rect x="160" y="438" width="64" height="52"/>
+      <rect x="232" y="444" width="80" height="46"/>
+      <rect x="322" y="430" width="58" height="58"/>
+      <rect x="390" y="420" width="86" height="66"/>
+      <rect x="486" y="428" width="70" height="56"/>
+      <rect x="566" y="440" width="76" height="46"/>
+    </g>
+    <g fill="#a9666a">
+      <rect x="134" y="446" width="16" height="44"/>
+      <rect x="210" y="438" width="14" height="52"/>
+      <rect x="296" y="444" width="16" height="46"/>
+      <rect x="366" y="430" width="14" height="58"/>
+      <rect x="460" y="420" width="16" height="66"/>
+      <rect x="542" y="428" width="14" height="56"/>
+      <rect x="628" y="440" width="14" height="46"/>
+    </g>
+
+    <!-- windows -->
+    <g fill="#3a2036" opacity="0.82">
+      <rect x="132" y="418" width="9" height="13"/><rect x="148" y="418" width="9" height="13"/>
+      <rect x="196" y="408" width="9" height="13"/><rect x="196" y="432" width="9" height="13"/>
+      <rect x="254" y="414" width="9" height="13"/><rect x="272" y="414" width="9" height="13"/>
+      <rect x="326" y="384" width="9" height="14"/><rect x="326" y="412" width="9" height="14"/>
+      <rect x="390" y="368" width="10" height="14"/><rect x="410" y="368" width="10" height="14"/>
+      <rect x="390" y="398" width="10" height="14"/><rect x="410" y="398" width="10" height="14"/>
+      <rect x="464" y="362" width="10" height="14"/><rect x="464" y="392" width="10" height="14"/>
+      <rect x="528" y="376" width="10" height="14"/><rect x="546" y="376" width="10" height="14"/>
+      <rect x="596" y="408" width="10" height="14"/>
+      <rect x="404" y="436" width="11" height="15"/><rect x="430" y="436" width="11" height="15"/>
+      <rect x="500" y="442" width="11" height="15"/><rect x="580" y="452" width="11" height="14"/>
+      <rect x="248" y="458" width="11" height="15"/><rect x="272" y="458" width="11" height="15"/>
+      <rect x="176" y="452" width="11" height="15"/>
+    </g>
+    <!-- the blue doors of the medina -->
+    <g fill="#2f6fa8">
+      <rect x="100" y="476" width="13" height="14" rx="5"/>
+      <rect x="256" y="476" width="13" height="14" rx="5"/>
+      <rect x="440" y="472" width="13" height="14" rx="5"/>
+      <rect x="600" y="472" width="13" height="14" rx="5"/>
+    </g>
+
+    <!-- ---- minaret (square Moroccan tower, green tiled cap) ---- -->
+    <g>
+      <rect x="522" y="262" width="46" height="106" fill="#ffe2b8"/>
+      <rect x="556" y="262" width="12" height="106" fill="#a9666a"/>
+      <rect x="518" y="256" width="54" height="12" fill="#e8c294"/>
+      <rect x="530" y="230" width="30" height="28" fill="#ffe2b8"/>
+      <rect x="552" y="230" width="8"  height="28" fill="#a9666a"/>
+      <path d="M525,230 L545,202 L565,230 Z" fill="#1f7a5a"/>
+      <circle cx="545" cy="196" r="5" fill="#f7e6b8"/>
+      <rect x="522" y="322" width="46" height="7" fill="#1f7a5a" opacity="0.8"/>
+      <g fill="#3a2036" opacity="0.85">
+        <path d="M532,288 h11 v20 h-11 z"/><path d="M532,289 a5.5,5.5 0 0 1 11,0 z"/>
+        <path d="M532,340 h11 v20 h-11 z"/><path d="M532,341 a5.5,5.5 0 0 1 11,0 z"/>
+      </g>
+    </g>
+
+    <!-- ---- kasbah rampart along the ridge ---- -->
+    <g fill="#d9a882">
+      <rect x="596" y="452" width="104" height="18"/>
+      <g>
+        <rect x="598" y="442" width="14" height="12"/><rect x="626" y="442" width="14" height="12"/>
+        <rect x="654" y="442" width="14" height="12"/><rect x="682" y="442" width="14" height="12"/>
+      </g>
+    </g>
+
+    <!-- palms -->
+    <use xlink:href="#palm" href="#palm" transform="translate(676,506) scale(0.9)"/>
+    <use xlink:href="#palm" href="#palm" transform="translate(36,506) scale(1.05)"/>
+  </g>
+
+  <!-- ================= CORNICHE ================= -->
+  <rect x="0" y="556" width="1280" height="164" fill="url(#promenade)"/>
+  <rect x="0" y="548" width="1280" height="18" fill="#241a33"/>
+  <rect x="0" y="548" width="1280" height="4" fill="#ff9d55" opacity="0.55"/>
+  <g stroke="#170f22" stroke-width="6" stroke-linecap="round">
+    <path d="M0,520 H1280"/>
+    <g stroke-width="5">
+      <path d="M40,520 V552"/><path d="M120,520 V552"/><path d="M200,520 V552"/><path d="M280,520 V552"/>
+      <path d="M360,520 V552"/><path d="M440,520 V552"/><path d="M520,520 V552"/><path d="M600,520 V552"/>
+      <path d="M680,520 V552"/><path d="M760,520 V552"/><path d="M840,520 V552"/><path d="M920,520 V552"/>
+      <path d="M1000,520 V552"/><path d="M1080,520 V552"/><path d="M1160,520 V552"/><path d="M1240,520 V552"/>
+    </g>
+  </g>
+  <g stroke="#3a2a4a" stroke-width="3" opacity="0.7">
+    <path d="M-40,602 H1320"/><path d="M-60,652 H1340"/><path d="M-80,708 H1360"/>
+  </g>
+
+  <!-- ================= RUNNER ================= -->
+  <ellipse cx="980" cy="642" rx="164" ry="20" fill="#0a0612" opacity="0.8" filter="url(#softshadow)"/>
+
+  <!-- speed streaks trailing behind him -->
+  <g stroke="url(#streak)" stroke-linecap="round" opacity="0.8">
+    <path d="M1160,262 h140" stroke-width="9"/>
+    <path d="M1120,332 h190" stroke-width="13"/>
+    <path d="M1180,404 h120" stroke-width="8"/>
+    <path d="M1104,462 h200" stroke-width="14"/>
+    <path d="M1196,520 h110" stroke-width="7"/>
+    <path d="M1140,578 h160" stroke-width="11"/>
+  </g>
+
+  <g transform="translate(1116,70) scale(-1.38,1.38)">
+    <use xlink:href="#runner" href="#runner" filter="url(#rimlight)"/>
+    <use xlink:href="#runner" href="#runner" filter="url(#hotrim)" opacity="0.9"/>
+    <use xlink:href="#runner" href="#runner"/>
+  </g>
+
+  <!-- grit kicked off the push-off foot -->
+  <g fill="#ffc98a" opacity="0.85">
+    <circle cx="1178" cy="624" r="5"/><circle cx="1212" cy="640" r="3.5"/>
+    <circle cx="1150" cy="650" r="4"/><circle cx="1236" cy="612" r="3"/>
+    <circle cx="1126" cy="634" r="2.5"/>
+  </g>
+
+  <!-- ================= OVERLAYS ================= -->
+  <rect width="1280" height="720" fill="url(#vignette)"/>
+  <rect x="0" y="0" width="700" height="720" fill="url(#scrim)"/>
+
+  <!-- location kicker -->
+  <g transform="translate(56,92) skewX(-10)">
+    <rect x="0" y="0" width="292" height="52" fill="#0f9d58"/>
+    <rect x="0" y="0" width="10" height="52" fill="#c0272d"/>
+  </g>
+  <text x="86" y="128" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="30"
+        font-weight="700" fill="#ffffff" letter-spacing="3">TANGIER, MOROCCO</text>
+
+  <!-- headline -->
+  <g transform="translate(52,278) scale(0.9,1)">
+    <text x="7" y="9" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="132"
+          font-weight="700" fill="#5c1f00" stroke="#5c1f00" stroke-width="19"
+          stroke-linejoin="round" paint-order="stroke fill" letter-spacing="-2">42.2 KM</text>
+    <text x="0" y="0" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="132"
+          font-weight="700" fill="#ffd21e" stroke="#12060c" stroke-width="16"
+          stroke-linejoin="round" paint-order="stroke fill" letter-spacing="-2">42.2 KM</text>
+  </g>
+
+  <g transform="translate(56,372) scale(0.9,1)">
+    <text x="0" y="0" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="92"
+          font-weight="700" fill="#ffffff" stroke="#12060c" stroke-width="14"
+          stroke-linejoin="round" paint-order="stroke fill" letter-spacing="-1">NON-STOP</text>
+  </g>
+
+  <!-- red shout banner -->
+  <g transform="translate(50,412) rotate(-2.5)">
+    <rect x="0" y="0" width="452" height="78" fill="#12060c"/>
+    <rect x="6" y="6" width="440" height="66" fill="#d81f26"/>
+    <text x="24" y="55" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="46"
+          font-weight="700" fill="#ffffff" letter-spacing="1">I NEARLY QUIT</text>
+    <text x="374" y="56" font-size="46" font-family="Noto Color Emoji, sans-serif">😱</text>
+  </g>
+
+  <!-- heat starburst badge -->
+  <g transform="translate(1142,116) scale(1.06)">
+    <path d="M0,-92 L16,-52 L54,-74 L44,-32 L88,-34 L58,-4 L96,14 L54,26 L78,62 L36,52
+             L36,94 L4,64 L-24,96 L-32,54 L-70,68 L-62,26 L-104,20 L-72,-8 L-104,-38
+             L-62,-40 L-72,-80 L-32,-64 L-24,-100 L6,-72 Z"
+          fill="#ffd21e" stroke="#12060c" stroke-width="9" stroke-linejoin="round"/>
+    <g transform="rotate(-10)">
+      <text x="-4" y="-4" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="44"
+            font-weight="700" fill="#12060c" text-anchor="middle" letter-spacing="-1">44°C</text>
+      <text x="-4" y="30" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="21"
+            font-weight="700" fill="#b1121a" text-anchor="middle" letter-spacing="0">IN THE SUN</text>
+    </g>
+  </g>
+
+  <!-- pointer arrow toward the runner -->
+  <g transform="translate(-28,26)">
+    <path d="M474,678 C580,676 668,632 716,566" fill="none" stroke="#12060c" stroke-width="27"
+          stroke-linecap="round"/>
+    <path d="M474,678 C580,676 668,632 716,566" fill="none" stroke="#ffd21e" stroke-width="15"
+          stroke-linecap="round"/>
+    <path d="M752,516 L714,588 L676,548 Z" fill="#ffd21e" stroke="#12060c" stroke-width="9"
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- stinger, kept bottom-LEFT so YouTube's duration badge never covers it -->
+  <text x="56" y="672" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="26"
+        font-weight="700" fill="#ffffff" opacity="0.92" letter-spacing="4"
+        stroke="#12060c" stroke-width="7" stroke-linejoin="round" paint-order="stroke fill">WATCH TO THE END</text>
+</svg>
