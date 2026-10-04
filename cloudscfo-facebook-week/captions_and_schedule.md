@@ -1,6 +1,6 @@
 # CloudsCFO — Facebook posts, week of 5–11 October 2026
 
-**Brand:** CloudsCFO · Finance, simplified.
+**Brand:** CloudsCFO · cloudscfo.com
 **Format:** 1080×1350 PNG (4:5 portrait, best size for the Facebook feed)
 **Times:** Morocco time (GMT+1). In Buffer, check that your profile timezone is *Africa/Casablanca*.
 
@@ -32,6 +32,7 @@ CloudsCFO gives growing businesses:
 CFO-level expertise, on a flexible cloud-based model.
 
 Follow the page for practical finance tips every week 👇
+🌐 cloudscfo.com
 
 #CloudsCFO #SmallBusiness #FractionalCFO #CloudAccounting #Entrepreneurs
 
@@ -50,6 +51,7 @@ Follow the page for practical finance tips every week 👇
 Which one do you check the least? Be honest 😅
 
 💾 Save this post for your next monthly review.
+🌐 cloudscfo.com
 
 #CloudsCFO #CFOTips #KPIs #BusinessFinance #SME
 
@@ -66,6 +68,7 @@ You don't need a full-time CFO. You need CFO thinking, at the right size and the
 That's exactly what CloudsCFO does. ☁️
 
 Agree or disagree? Tell us in the comments 👇
+🌐 cloudscfo.com
 
 #CloudsCFO #MythVsFact #FractionalCFO #SmallBusiness
 
@@ -84,6 +87,7 @@ Unpaid invoices, stock and payment timing can make a profitable business run out
 The fix: track both, every month, with a simple cash forecast.
 
 Tag a business owner who needs to see this 👇
+🌐 cloudscfo.com
 
 #CloudsCFO #CashFlow #CashIsKing #BusinessTips
 
@@ -103,6 +107,7 @@ Our 5-step routine:
 Too much on your plate? CloudsCFO can run it for you, every month. ☁️
 
 💾 Save this checklist.
+🌐 cloudscfo.com
 
 #CloudsCFO #MonthEndClose #Bookkeeping #Accounting
 
@@ -118,6 +123,7 @@ C. 60–90 days
 D. 90+ days
 
 Comment your letter 👇 We'll share our best tips to get paid faster in an upcoming post.
+🌐 cloudscfo.com
 
 #CloudsCFO #Receivables #CashFlow #SmallBusiness
 
@@ -137,6 +143,7 @@ What can CloudsCFO do for your business? ☁️
 One team. One monthly fee. Zero headaches.
 
 📩 Send us a message to get started.
+🌐 cloudscfo.com
 
 #CloudsCFO #FractionalCFO #OutsourcedAccounting #CloudAccounting
 
@@ -149,6 +156,7 @@ You can't grow what you don't measure. 📈
 Every good business decision starts with knowing your numbers: margins, cash, costs, trends.
 
 Have a great weekend from the CloudsCFO team ☀️
+🌐 cloudscfo.com
 
 #CloudsCFO #FridayThoughts #Growth #Entrepreneurship
 
@@ -167,6 +175,7 @@ Q4 is here. Don't wait until December 31st. 🗓️
 Need help with any of these? CloudsCFO is here. ☁️
 
 💾 Save for later.
+🌐 cloudscfo.com
 
 #CloudsCFO #Q4 #YearEnd #Budget2027 #TaxPlanning
 
@@ -183,6 +192,6 @@ We'll look at your numbers with you and point out 3 quick wins for your cash, ma
 ✔️ Clear, practical advice
 
 👉 Send us a message with the word "CHECK" to book your slot.
-📧 souhayl.abdellah@gmail.com
+🌐 cloudscfo.com
 
 #CloudsCFO #FreeConsultation #SmallBusiness #FractionalCFO
